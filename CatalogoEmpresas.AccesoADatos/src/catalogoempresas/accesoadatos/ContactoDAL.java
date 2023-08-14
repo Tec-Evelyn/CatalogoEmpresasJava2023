@@ -123,7 +123,7 @@ public class ContactoDAL {
         ArrayList<Contacto> contactos = new ArrayList();
         try (Connection conn = ComunDB.obtenerConexion();) { 
             String sql = obtenerSelect(pContacto);
-            sql += " WHERE c.Id=?";
+            sql += " WHERE c.Id=?";//La r la cambiamos por c
             try (PreparedStatement ps = ComunDB.createPreparedStatement(conn, sql);) {
                 ps.setInt(1, pContacto.getId());
                 obtenerDatos(ps, contactos);
